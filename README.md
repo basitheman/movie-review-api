@@ -145,17 +145,17 @@ DELETE /movies/:id
 
 ---
 
-## 🧪 Testing with cURL
+## 🧪 Testing with postman
 
 ```bash
 # Get all movies
-curl http://localhost:3000/movies
+get http://localhost:3000/movies
 
 # Get movie by ID
-curl http://localhost:3000/movies/1
+get http://localhost:3000/movies/1
 
 # Create a movie
-curl -X POST http://localhost:3000/movies \
+POST http://localhost:3000/movies \
   -H "Content-Type: application/json" \
   -d '{
     "title": "The Dark Knight",
@@ -167,12 +167,12 @@ curl -X POST http://localhost:3000/movies \
   }'
 
 # Update a movie
-curl -X PUT http://localhost:3000/movies/1 \
+PUT http://localhost:3000/movies/1 \
   -H "Content-Type: application/json" \
   -d '{"rating": 9.8, "review": "Even better on rewatch!"}'
 
 # Delete a movie
-curl -X DELETE http://localhost:3000/movies/1
+DELETE http://localhost:3000/movies/1
 ```
 
 ---
