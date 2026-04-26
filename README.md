@@ -1,7 +1,6 @@
 # 🎬 Movie Review REST API
 
 A simple REST API built with **Node.js core modules only** (`http` + `fs`).  
-No Express, no external frameworks — just pure Node.js.
 
 ---
 
