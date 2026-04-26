@@ -175,13 +175,7 @@ PUT http://localhost:3000/movies/1 \
 DELETE http://localhost:3000/movies/1
 ```
 
----
 
 
 
-## ⚙️ Technical Details
 
-- **Runtime:** Node.js (no external packages)
-- **Modules used:** `http`, `fs`, `path`
-- **Data store:** `data/movies.json` (flat file, synchronous I/O)
-- **Port:** `3000` (override with `PORT` env variable)
