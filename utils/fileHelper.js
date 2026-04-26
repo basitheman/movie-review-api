@@ -1,5 +1,3 @@
-// utils/fileHelper.js
-// Handles all file system operations for reading and writing movie data
 
 const fs = require("fs");
 const path = require("path");
