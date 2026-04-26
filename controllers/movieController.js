@@ -1,15 +1,6 @@
-// controllers/movieController.js
-// Contains all CRUD handler functions for the Movie Review API
-
 const { readMovies, writeMovies } = require("../utils/fileHelper");
 const { ok, created, badRequest, notFound, serverError } = require("../utils/response");
 
-// ─── READ ALL ────────────────────────────────────────────────────────────────
-
-/**
- * GET /movies
- * Returns a list of all movies.
- */
 function getAllMovies(req, res) {
   try {
     const movies = readMovies();
@@ -22,12 +13,7 @@ function getAllMovies(req, res) {
   }
 }
 
-// ─── READ ONE ────────────────────────────────────────────────────────────────
 
-/**
- * GET /movies/:id
- * Returns a single movie by its ID.
- */
 function getMovieById(req, res, id) {
   try {
     const movies = readMovies();
@@ -43,17 +29,10 @@ function getMovieById(req, res, id) {
   }
 }
 
-// ─── CREATE ──────────────────────────────────────────────────────────────────
-
-/**
- * POST /movies
- * Adds a new movie. Expects JSON body with: title, director, year, genre, rating, review.
- */
 function createMovie(req, res, body) {
   try {
     const { title, director, year, genre, rating, review } = body;
 
-    // Validate required fields
     if (!title || !director || !year || !genre || !rating || !review) {
       return badRequest(
         res,
@@ -67,7 +46,7 @@ function createMovie(req, res, body) {
 
     const movies = readMovies();
 
-    // Generate a unique ID based on timestamp
+    
     const newMovie = {
       id: Date.now().toString(),
       title,
@@ -90,12 +69,7 @@ function createMovie(req, res, body) {
   }
 }
 
-// ─── UPDATE ──────────────────────────────────────────────────────────────────
 
-/**
- * PUT /movies/:id
- * Updates an existing movie by ID. Partial updates are supported.
- */
 function updateMovie(req, res, id, body) {
   try {
     const movies = readMovies();
@@ -105,14 +79,14 @@ function updateMovie(req, res, id, body) {
       return notFound(res, `Movie with ID "${id}" not found.`);
     }
 
-    // Validate rating if provided
+    
     if (body.rating !== undefined) {
       if (typeof body.rating !== "number" || body.rating < 0 || body.rating > 10) {
         return badRequest(res, "Rating must be a number between 0 and 10.");
       }
     }
 
-    // Merge existing data with updates (partial update support)
+    
     const updatedMovie = { ...movies[index], ...body, id };
     movies[index] = updatedMovie;
     writeMovies(movies);
@@ -126,12 +100,6 @@ function updateMovie(req, res, id, body) {
   }
 }
 
-// ─── DELETE ──────────────────────────────────────────────────────────────────
-
-/**
- * DELETE /movies/:id
- * Deletes a movie by its ID.
- */
 function deleteMovie(req, res, id) {
   try {
     const movies = readMovies();
