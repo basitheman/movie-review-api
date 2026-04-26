@@ -177,19 +177,7 @@ DELETE http://localhost:3000/movies/1
 
 ---
 
-## 📋 Movie Object Schema
 
-| Field      | Type   | Required | Description                    |
-|------------|--------|----------|--------------------------------|
-| `id`       | string | auto     | Auto-generated unique ID       |
-| `title`    | string | ✅       | Movie title                    |
-| `director` | string | ✅       | Director's name                |
-| `year`     | number | ✅       | Release year                   |
-| `genre`    | string | ✅       | Genre (e.g. Drama, Sci-Fi)     |
-| `rating`   | number | ✅       | Rating from 0 to 10            |
-| `review`   | string | ✅       | Short review text              |
-
----
 
 ## ⚙️ Technical Details
 
